@@ -27,6 +27,14 @@ window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
 
 gameStart();
+document.body.onkeyup = function(e) {
+    if (e.key == " " ||  
+        e.code == "Space" ||
+        e.keyCode == 32
+    ) {
+        resetGame()
+    }
+}
 
 function gameStart(){
     running= true;
@@ -96,6 +104,8 @@ function changeDirection(event){
     const UP = 38;
     const RIGHT = 39;
     const DOWN = 40;
+
+
 
     const goingUp = (yVelocity == -unitSize);
     const goingDown = (yVelocity == unitSize);
